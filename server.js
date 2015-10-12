@@ -57,28 +57,15 @@ server.use(function (req, res, next) {
   res.end();
 });
 
-server.get('/test', function (req, res) {
-  res.write("Welcome to my amazing app");
-  res.end();
-});
+// server.get('/test', function (req, res) {
+//   res.write("Welcome to my amazing app");
+//   res.end();
+// });
 
 // server.get('/new', function (req, res) {
 //   res.render('users/new-user');
 // });
 
-server.post('/', function (req, res) {
-  var newUser = User(req.body.user);
-
-  newUser.save(function (err, user) {
-    res.redirect(301, "/users/" + user._id)
-  });
-});
-
-server.get('/:id', function (req, res) {
-  User.findById(req.params.id, function (err, user) {
-    console.log(user);
-  });
-});
 
 
 mongoose.connect(MONGOURI + "/" + DBNAME);
