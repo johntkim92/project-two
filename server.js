@@ -52,6 +52,16 @@ server.use(function (req, res, next) {
 var userController = require('./controllers/users.js');
 server.use('/users', userController);
 
+server.get('/welcome', function (req, res) {
+  if (req.session.currentUser) {
+    res.render('welcome', {
+      currentUser: req.session.currentUser
+    });
+  } else {
+    res.redirect(301, '/users/login');
+  }
+});
+
 server.use(function (req, res, next) {
   res.send("Your journey ends here");
   res.end();

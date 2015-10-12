@@ -22,7 +22,12 @@ router.post('/login', function (req, res) {
   var attempt = req.body.user;
 
   User.findOne({ username: attempt.username }, function (err, user) {
-    console.log(err, user);
+    if (user && user.password === attempt.password) {
+      req.session.currentUser = user.username;
+      res.redirect(301, "/welcome");
+    } else {
+      res.redirect(301, '/users/login');
+    };
   });
 });
 
