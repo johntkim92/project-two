@@ -8,7 +8,7 @@
     <% topics.forEach(function (topic, i) { %>
       <div class = "topic">
         <h3>
-          <a href ="/topics/<%= topic._id %>"<%= topic.title %></a>, by <%= topic.author %>.</h3>
+          <a href ="/topics/<%= topic._id %>"><%= topic.title %></a>, by <%= topic.author %>.</h3>
       </div>
     <% }) %>
   </body>

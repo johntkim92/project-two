@@ -18,6 +18,17 @@ router.get('/new', function (req, res) {
   res.render('topics/new');
 });
 
+server.get('/:id', function (req, res) {
+  Topic.findById(req.params.id, function (err, aSpecficTopic) {
+    if (err) {
+      console.log("Something broke", err);
+    } else {
+      res.render('topics/show', {
+        topic: aSpecficTopic
+      });
+    }
+  });
+});
 
 
 
