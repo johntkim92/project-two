@@ -52,6 +52,10 @@ server.use(function (req, res, next) {
 var userController = require('./controllers/users.js');
 server.use('/users', userController);
 
+//test
+var topicController = require('./controllers/topics.js');
+server.use('/topics', topicController);
+
 server.get('/welcome', function (req, res) {
   if (req.session.currentUser) {
     res.render('welcome', {

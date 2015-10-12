@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Welcome to our site!</title>
+  <title>Create a new topic!</title>
 </head>
 <body>
-  <h1>Sign up for our site!</h1>
-  <form action="/users" method="post">
+  <h1>Create a new topic!</h1>
+  <form action="/topics" method="post">
     <input type="text"
-           name="user[username]"
-           placeholder="username">
-    <input type="password"
-           name="user[password]"
-           placeholder="password">
-    <input type="submit" value="Sign up!">
+           name="topic[title]"
+           placeholder="Title">
+    <input type="text"
+           name="topic[author]"
+           placeholder="Author">
+    <input type="text"
+           name="topic[body]"
+           placeholder="Body">
+    <input type="text"
+           name="topic[comments][]"
+           placeholder="Comments">
+    <input type="submit" value="Post Topic!">
   </form>
 </body>
 </html>
