@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit your topic!</title>
+</head>
+<body>
+  <h1>Edit!</h1>
+  <form action="/topics/<%= topic._id %>?_method=PATCH" method="post">
+    <input type="text"
+           name="topic[title]"
+           placeholder="Title"
+           value="<%= topic.title %>">
+    <input type="text"
+           name="topic[author]"
+           placeholder="Author"
+           value="<%= topic.author %>">
+    <input type="text"
+           name="topic[body]"
+           placeholder="Body"
+           value="<%= topic.body %>">
+    <input type="text"
+           name="topic[comments][]"
+           placeholder="Comments"
+           value="<%= topic.comments %>">
+    <input type="submit" value="Post Topic!">
+  </form>
+</body>
+</html>
