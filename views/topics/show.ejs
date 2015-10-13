@@ -8,13 +8,13 @@
     <div class="topic">
       <h3><%= topic.title %></h3>
       <p><%= topic.body %></p>
-      <!-- <h4><%= topic.comments.content %></h4> -->
-      <% topic.comments.forEach(function (comments, i) { %>
-        <h5><%= comments.content %></h5>
-      <% }) %>
+      <!-- <% topic.comments.forEach(function (comments, i) { %> -->
+        <h5><%= topic.comments %></h5>
+      <!-- <% }) %> -->
 
-      <form action="/topics/<%= topic._id %>/comments" method="POST">
-        <input type="text" name="topic[comments][content]">
+      <h3>Submit comment</h3>
+      <form action="/topics/<%= topic._id %>" method="POST">
+        <input type="text" name="topic[comments][]">
         <input type="submit" value="post comment">
       </form>
     </div>

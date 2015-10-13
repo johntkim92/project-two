@@ -30,6 +30,14 @@ router.get('/:id', function (req, res) {
   });
 });
 
+// ** getting the comments to render back onto the page **
+// router.post('/:id', function (req, res) {
+//   var newTopic = Topic(req.body.topic);
+//   newTopic.save(function (err, topic) {
+//     res.redirect(301, "/topics/" + topic._id);
+//   });
+// });
+
 router.get('/:id/edit', function (req, res) {
   Topic.findById(req.params.id, function (err, aSpecficTopic) {
     if (err) {
@@ -42,11 +50,27 @@ router.get('/:id/edit', function (req, res) {
   });
 });
 
+router.patch('/:id', function (req, res) {
+  var topicOptions = req.body.topic;
+
+  Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect(301, "/topics/" + updatedTopic._id);
+    }
+  });
+});
 
 router.post('/', function (req, res) {
-  var newTopic = Topic(req.body.topic);
-  newTopic.save(function (err, topic) {
-    res.redirect(301, "/topics/" + topic._id);
+  var topicOptions = req.body.topic;
+  var newTopic = new Topic(topicOptions);
+  newTopic.save(function (err, useAfterDatabase) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect(301, "/topics");
+    }
   });
 });
 
