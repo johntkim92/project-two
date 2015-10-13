@@ -6,7 +6,7 @@ var topicSchema = new Schema({
   title: { type: String, required: true},
   author: String,
   body: String,
-  comments: [ String ]
+  comments: [ {content: String} ]
 });
 
 var Topic = mongoose.model("Topic", topicSchema);

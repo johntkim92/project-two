@@ -20,9 +20,9 @@
            placeholder="Body"
            value="<%= topic.body %>">
     <input type="text"
-           name="topic[comments][]"
+           name="topic[comments][content]"
            placeholder="Comments"
-           value="<%= topic.comments %>">
+           value="<%= topic.comments.content %>">
     <input type="submit" value="Post Topic!">
   </form>
 </body>
