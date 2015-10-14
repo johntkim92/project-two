@@ -69,7 +69,8 @@ router.patch('/:id', function (req, res) {
 });
 
 router.patch('/:id/comments', function (req, res) {
-var addComment = {$push: {comments: req.body.topic.comments}}
+// var addComment = {$push: {comments: req.body.topic.comments}}
+var addComment = {$push: {comments: {content: req.body.topic.comments, user: req.session.currentUser}}};
 
   Topic.findByIdAndUpdate(req.params.id, addComment, function (err, updatedComment) {
     if (err) {

@@ -13,7 +13,9 @@
       <p>>  <%= topic.body %></p>
       <% if (topic.comments) { %>
           <% for (var i = 0; i < topic.comments.length; i++) { %>
-              <h6><%= topic.comments[i] %></h6>
+              <!-- <h6><%= topic.comments[i] %></h6> -->
+              <h6><%= topic.comments[i].content %></h6>
+              <h6><%= topic.comments[i].user %></h6>
           <% } %>
       <% } else { %>
           <h6>Join the dicussion and submit a comment below.</h6>
