@@ -57,6 +57,15 @@ server.use('/users', userController);
 var topicController = require('./controllers/topics.js');
 server.use('/topics', topicController);
 
+// ** use this to redirect to signup page. put it where it needs to be run
+server.use(function (req, res, next) {
+  if (req.session.currentUser == undefined) {
+    res.redirect(301, '/users/login')
+  } else {
+    next();
+  }
+});
+
 server.get('/welcome', function (req, res) {
   if (req.session.currentUser) {
     res.render('welcome', {

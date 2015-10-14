@@ -9,14 +9,19 @@
     <div class="topic">
       <h3><%= topic.title %></h3>
       <h5>Author: <%= topic.author %></h5>
+      <h5>Posted on: <%= topic.date %></h5>
       <p>>  <%= topic.body %></p>
-      <!-- <% topic.comments.forEach(function (comments, i) { %> -->
-        <h5><%= topic.comments %></h5>
-      <!-- <% }) %> -->
+      <% if (topic.comments) { %>
+          <% for (var i = 0; i < topic.comments.length; i++) { %>
+              <h6><%= topic.comments[i] %></h6>
+          <% } %>
+      <% } else { %>
+          <h6>Join the dicussion and submit a comment below.</h6>
+      <% } %>
 
       <h3>Submit comment</h3>
-      <form action="/topics/<%= topic._id %>" method="POST">
-        <input type="text" name="topic[comments][]">
+      <form action="/topics/<%= topic._id %>?_method=PATCH" method="POST">
+        <input type="text" placeholder="comment here" name="topic[comments]">
         <input type="submit" value="post comment">
       </form>
     </div>

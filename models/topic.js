@@ -6,7 +6,7 @@ var topicSchema = new Schema({
   title: { type: String, required: true},
   author: String,
   body: String,
-  comments: [  ],
+  comments: [String],
   date: { type: Date, default: Date.now },
   votes: { type: Number, default: 0}
 });
@@ -14,6 +14,6 @@ var topicSchema = new Schema({
 var Topic = mongoose.model("Topic", topicSchema);
 
 module.exports = Topic;
-// 
+//
 // comments: [{content: String,
 //             user: String}]

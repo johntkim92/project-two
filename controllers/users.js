@@ -8,10 +8,10 @@ router.get('/new', function (req, res) {
   res.render('users/new');
 });
 
-router.post('/', function (req, res) {
+router.post('/new', function (req, res) {
   var newUser = User(req.body.user);
   newUser.save(function (err, user) {
-    res.redirect(301, "/users/" + user._id);
+    res.redirect(301, "/users/login");
   });
 });
 
@@ -27,7 +27,7 @@ router.post('/login', function (req, res) {
       req.session.currentUser = user.username;
       res.redirect(301, "/topics");
     } else {
-      res.redirect(301, '/users/login');
+      res.redirect(301, '/users/new');
     };
   });
 });
