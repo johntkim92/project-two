@@ -6,6 +6,16 @@
     <title>Show All</title>
   </head>
   <body>
+    <div>
+    <form action="/topics/<%= topic._id %>/upvotes?_method=PATCH" method="POST">
+      <input type="submit" name="topic[votes]" value="+1" placeholder="+1">
+    </form>
+    </div>
+    <div>
+    <form action="/topics/<%= topic._id %>/downvotes?_method=PATCH" method="POST">
+      <input type="submit" name="topic[votes]" value="-1" placeholder="+1">
+    </form>
+    </div>
     <div class="topic">
       <h3><%= topic.title %></h3>
       <h5>Author: <%= topic.author %></h5>
@@ -17,7 +27,7 @@
               <h6><%= topic.comments[i].content %></h6>
               <h6><%= topic.comments[i].user %></h6>
           <% } %>
-      <% } else { %>
+      <% } else if (topic.comments.length == 0) { %>
           <h6>Join the dicussion and submit a comment below.</h6>
       <% } %>
 

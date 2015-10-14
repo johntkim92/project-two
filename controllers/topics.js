@@ -58,7 +58,7 @@ router.get('/:id/edit', function (req, res) {
 
 router.patch('/:id', function (req, res) {
   var topicOptions = req.body.topic;
-  // var topicOptions = {$inc: { vote: req.body.vote } }
+  // var topicOptions = {$inc: { votes: req.body.topic.votes } }
   Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
     if (err) {
       console.log(err);
@@ -77,6 +77,28 @@ var addComment = {$push: {comments: {content: req.body.topic.comments, user: req
       console.log(err)
     } else {
       res.redirect(301, "/topics/" + updatedComment._id);
+    }
+  });
+});
+
+router.patch('/:id/upvotes', function (req, res) {
+  var voteOptions = {$inc: { votes: req.body.topic.votes } };
+  Topic.findByIdAndUpdate(req.params.id, voteOptions, function (err, updatedVote) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect(301, "/topics/" + updatedVote._id);
+    }
+  });
+});
+
+router.patch('/:id/downvotes', function (req, res) {
+  var voteOptions = {$inc: { votes: req.body.topic.votes } };
+  Topic.findByIdAndUpdate(req.params.id, voteOptions, function (err, updatedVote) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect(301, "/topics/" + updatedVote._id);
     }
   });
 });
