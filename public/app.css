@@ -2,3 +2,16 @@
   margin-left: 1em;
   margin-bottom: 1em;
 };
+
+#topic-index {
+  margin-left: 1em;
+  background-color:blue;
+}
+
+#indiv-topics {
+  margin-left: 1em;
+}
+
+body {
+  background-color: pink;
+}

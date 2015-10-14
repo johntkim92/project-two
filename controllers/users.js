@@ -25,7 +25,7 @@ router.post('/login', function (req, res) {
   User.findOne({ username: attempt.username }, function (err, user) {
     if (user && user.password === attempt.password) {
       req.session.currentUser = user.username;
-      res.redirect(301, "/welcome");
+      res.redirect(301, "/topics");
     } else {
       res.redirect(301, '/users/login');
     };
