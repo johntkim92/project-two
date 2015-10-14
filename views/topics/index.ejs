@@ -9,6 +9,13 @@
       <div id="topic-index">
         <h3>
           <a id="indiv-topics" href ="/topics/<%= topic._id %>"><%= topic.title %></a>, by <%= topic.author %>.</h3>
+          <a href="/topics/<%= topic._id %>"><%= topic.comments.length %>
+            <% if (topic.comments.length == 1) { %>
+              comment
+          <%  } else { %>
+              comments
+          <% } %>
+          </a>
       </div>
     <% }) %>
   </body>
