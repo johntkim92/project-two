@@ -67,6 +67,7 @@ router.patch('/:id', function (req, res) {
 router.post('/', function (req, res) {
   var topicOptions = req.body.topic;
   var newTopic = new Topic(topicOptions);
+  newTopic.author = req.session.currentUser;
   newTopic.save(function (err, useAfterDatabase) {
     if (err) {
       console.log(err);
@@ -75,6 +76,19 @@ router.post('/', function (req, res) {
     }
   });
 });
+// ** Use this below code for post whe submitting new topic?
+
+// var attempt = req.body.user;
+//
+// User.findOne({ username: attempt.username }, function (err, user) {
+//   if (user && user.password === attempt.password) {
+//     req.session.currentUser = user.username;
+//     res.redirect(301, "/topics");
+//   } else {
+//     res.redirect(301, '/users/login');
+//   };
+// });
+
 
 // ** comments.split not working **
 
