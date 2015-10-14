@@ -1,8 +1,10 @@
 var express = require('express'),
     router = express.Router(),
-    Topic = require('../models/topic.js');
+    Topic = require('../models/topic.js'),
+    User = require('../models/user.js');
 
 router.get('/', function (req, res) {
+  // console.log(req.body.user.username);
   Topic.find({}, function (err, allTheTopics) {
     if (err) {
       console.log("Something broke", err);

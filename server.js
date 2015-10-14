@@ -8,7 +8,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     session = require('express-session'),
     ejs = require('ejs');
-    // expressLayouts = require('express-ejs-layouts'),
+    expressLayouts = require('express-ejs-layouts'),
     // Schema = mongoose.Schema;
 
 // var topicSchema = new Schema ({
@@ -33,6 +33,7 @@ server.use(session({
 }));
 
 server.use(express.static('./public'));
+server.use(expressLayouts);
 
 server.use(bodyParser.urlencoded({
   extended: true

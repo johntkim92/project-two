@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
-    User = require('../models/user.js');
+    User = require('../models/user.js'),
+    Topic = require('../models/topic.js');
 
 // define routes for router
 router.get('/new', function (req, res) {

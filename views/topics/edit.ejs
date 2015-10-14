@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Edit your topic!</title>
-</head>
-<body>
+
   <h1>Edit!</h1>
   <form action="/topics/<%= topic._id %>?_method=PATCH" method="post">
     <input type="text"
@@ -25,5 +19,3 @@
            value="<%= topic.comments %>">
     <input type="submit" value="Post Topic!">
   </form>
-</body>
-</html>
