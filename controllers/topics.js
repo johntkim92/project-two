@@ -54,7 +54,7 @@ router.get('/:id/edit', function (req, res) {
 
 router.patch('/:id', function (req, res) {
   var topicOptions = req.body.topic;
-
+  // var topicOptions = {$inc: { vote: req.body.vote } }
   Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
     if (err) {
       console.log(err);
