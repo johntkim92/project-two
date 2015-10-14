@@ -1,0 +1,23 @@
+input {
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.title {
+  width: 15em;
+}
+
+.body {
+  width: 50%;
+  height: 5em;
+}
+
+.comments {
+  width: 50%;
+  height: 2em;
+}
+
+.h1 {
+  margin-left: 0.5em;
+}

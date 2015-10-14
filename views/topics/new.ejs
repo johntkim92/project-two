@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/topic-new.css">
   <title>Create a new topic!</title>
 </head>
 <body>
-  <h1>Create a new topic!</h1>
+  <h1 class="h1">Create a new topic!</h1>
   <form action="/topics" method="post">
-    <input type="text"
+    <input class="title" type="text"
            name="topic[title]"
            placeholder="Title">
-    <input type="text"
+           <br>
+    <input class="author" type="text"
            name="topic[author]"
            placeholder="Author">
-    <input type="text"
+           <br>
+    <input class="body" type="text"
            name="topic[body]"
            placeholder="Body">
-    <input type="text"
+           <br>
+    <input class="comments" type="text"
            name="topic[comments][]"
            placeholder="Comments">
+           <br>
     <input type="submit" value="Post Topic!">
   </form>
 </body>
