@@ -6,7 +6,7 @@ var topicSchema = new Schema({
   title: { type: String, required: true},
   author: String,
   body: String,
-  comments: [String],
+  comments: [ ],
   date: { type: Date, default: Date.now },
   votes: { type: Number, default: 0}
 });

@@ -32,6 +32,8 @@ router.get('/:id', function (req, res) {
   });
 });
 
+
+
 // ** getting the comments to render back onto the page **
 // router.post('/:id', function (req, res) {
 //   var newTopic = Topic(req.body.topic);
@@ -52,6 +54,8 @@ router.get('/:id/edit', function (req, res) {
   });
 });
 
+
+
 router.patch('/:id', function (req, res) {
   var topicOptions = req.body.topic;
   // var topicOptions = {$inc: { vote: req.body.vote } }
@@ -60,6 +64,18 @@ router.patch('/:id', function (req, res) {
       console.log(err);
     } else {
       res.redirect(301, "/topics/" + updatedTopic._id);
+    }
+  });
+});
+
+router.patch('/:id/comments', function (req, res) {
+var addComment = {$push: {comments: req.body.topic.comments}}
+
+  Topic.findByIdAndUpdate(req.params.id, addComment, function (err, updatedComment) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.redirect(301, "/topics/" + updatedComment._id);
     }
   });
 });
