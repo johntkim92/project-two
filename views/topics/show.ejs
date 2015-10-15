@@ -30,12 +30,16 @@
       <% } else if (topic.comments.length == 0) { %>
           <h6>Join the dicussion and submit a comment below.</h6>
       <% } %>
+      <% if (currentUser === topic.author) { %>
       <a href="/topics/<%= topic._id %>/edit">Edit</a>
+      <% } %>
+    <% if (currentUser === topic.author) { %>
     <div>
       <form action="/topics/<%= topic._id %>?_method=DELETE" method="post">
         <input type="submit" value="Delete Topic">
       </form>
     </div>
+    <% } %>
       <h3>Submit comment</h3>
       <form action="/topics/<%= topic._id %>/comments?_method=PATCH" method="POST">
         <input type="text" placeholder="comment here" name="topic[comments]">

@@ -38,7 +38,8 @@ router.get('/:id', function (req, res) {
       console.log("Something broke", err);
     } else {
       res.render('topics/show', {
-        topic: aSpecficTopic
+        topic: aSpecficTopic,
+        currentUser: req.session.currentUser
       });
     }
   });
@@ -70,19 +71,17 @@ router.get('/:id/edit', function (req, res) {
 
 router.patch('/:id', function (req, res) {
 var topicOptions = req.body.topic;
-  // var topicOptions = {$inc: { votes: req.body.topic.votes } }
-if (topicOptions.author !== req.session.currentUser) {
-  res.redirect(301, "/topics");
-} else {
-  Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect(301, "/topics/" + updatedTopic._id);
-    }
-  });
-};
+Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
+  if (err) {
+    console.log(err);
+  } else {
+    res.redirect(301, "/topics/" + updatedTopic._id);
+  }
 });
+});
+// var topicOptions = {$inc: { votes: req.body.topic.votes } }
+// if (topicOptions.author !== req.session.currentUser) {
+//   res.redirect(301, "/topics");
 
 router.patch('/:id/comments', function (req, res) {
 // var addComment = {$push: {comments: req.body.topic.comments}}

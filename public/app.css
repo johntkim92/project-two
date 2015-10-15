@@ -1,11 +1,12 @@
-.login-header {
+/*.login-header {
   margin-left: 1em;
   margin-bottom: 1em;
-};
+};*/
 
 #topic-index {
   margin-left: 1em;
-  background-color:blue;
+  /*background-color:blue;*/
+  background-color: #FAEBD7;
 }
 
 #indiv-topics {
@@ -15,7 +16,7 @@
 body {
   background-color: pink;
 }
-
+/* classes for new users */
 .input-style {
   width: 20%;
   margin: 0 auto;
@@ -40,4 +41,18 @@ body {
 .signup-div-style {
   margin: 0 auto;
   text-align: center;
+}
+
+/* classes for user login */
+.login-header {
+  margin-left: 2em;
+  margin-bottom: 0.7em;
+}
+
+.login-label {
+  margin-left: 2em;
+}
+
+.login-div {
+  margin-left: 5em;
 }
