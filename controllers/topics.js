@@ -16,6 +16,18 @@ router.get('/', function (req, res) {
   });
 });
 
+router.get('/most-votes', function (req, res, next) {
+  Topic.find().sort({votes:-1}).exec(function (err, theTopics) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('topics/most-votes', {
+        topic: theTopics
+      });
+    }
+  });
+});
+
 router.get('/new', function (req, res) {
   res.render('topics/new');
 });
@@ -144,6 +156,8 @@ router.delete('/:id', function (req, res) {
 });
 // };
 // });
+
+
 
 router.post('/', function (req, res) {
   var topicOptions = req.body.topic;
