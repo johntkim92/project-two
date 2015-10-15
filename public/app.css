@@ -15,3 +15,29 @@
 body {
   background-color: pink;
 }
+
+.input-style {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.signup-btn-style {
+  text-align: center;
+  margin-left: 45em;
+  margin-top: 2em;
+}
+
+.signup-h1-style {
+  text-align:center;
+}
+
+.signup-label-style {
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.signup-div-style {
+  margin: 0 auto;
+  text-align: center;
+}
