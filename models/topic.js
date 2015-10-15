@@ -11,7 +11,8 @@ var topicSchema = new Schema({
     user: String
   } ],
   date: { type: Date, default: Date.now },
-  votes: { type: Number, default: 0}
+  votes: { type: Number, default: 0},
+  delete: { type: Number, default: 0}
 });
 
 var Topic = mongoose.model("Topic", topicSchema);

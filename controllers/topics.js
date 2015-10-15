@@ -108,15 +108,42 @@ router.patch('/:id/downvotes', function (req, res) {
 });
 
 router.delete('/:id', function (req, res) {
-  Topic.findByIdAndRemove(req.params.id, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("User is gone..");
-      res.redirect(301, '/topics');
+//   var topicOptions = req.body.topic;
+//     // var topicOptions = {$inc: { votes: req.body.topic.votes } }
+//   var authorName = Topic.findOne({author: req.session.currentUser}, function (err, article) {
+//     if (err) {
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   });
+//   if (authorName == true) {
+//     Topic.findByIdAndRemove(req.params.id, function (err) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log("User is gone..");
+//         res.redirect(301, '/topics');
+//       }
+//     });
+//   } else {
+//     res.redirect(301, "/topics");
+//   };
+// });
+  // if (req.body.topic.author !== req.session.currentUser) {
+  //   res.redirect(301, "/topics");
+  // } else {
+    Topic.findByIdAndRemove(req.params.id, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("User is gone..");
+        res.redirect(301, '/topics');
     }
   });
 });
+// };
+// });
 
 router.post('/', function (req, res) {
   var topicOptions = req.body.topic;
