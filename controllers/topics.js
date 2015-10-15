@@ -57,8 +57,11 @@ router.get('/:id/edit', function (req, res) {
 
 
 router.patch('/:id', function (req, res) {
-  var topicOptions = req.body.topic;
+var topicOptions = req.body.topic;
   // var topicOptions = {$inc: { votes: req.body.topic.votes } }
+if (topicOptions.author !== req.session.currentUser) {
+  res.redirect(301, "/topics");
+} else {
   Topic.findByIdAndUpdate(req.params.id, topicOptions, function (err, updatedTopic) {
     if (err) {
       console.log(err);
@@ -66,6 +69,7 @@ router.patch('/:id', function (req, res) {
       res.redirect(301, "/topics/" + updatedTopic._id);
     }
   });
+};
 });
 
 router.patch('/:id/comments', function (req, res) {
