@@ -103,6 +103,17 @@ router.patch('/:id/downvotes', function (req, res) {
   });
 });
 
+router.delete('/:id', function (req, res) {
+  Topic.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("User is gone..");
+      res.redirect(301, '/topics');
+    }
+  });
+});
+
 router.post('/', function (req, res) {
   var topicOptions = req.body.topic;
   var newTopic = new Topic(topicOptions);
