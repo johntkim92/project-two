@@ -16,16 +16,18 @@
       <input type="submit" name="topic[votes]" value="-1" placeholder="+1">
     </form>
     </div>
-    <div class="topic">
+    <div class="show-div">
       <h3><%= topic.title %></h3>
       <h5>Author: <%= topic.author %></h5>
-      <h5>Posted on: <%= topic.date %></h5>
+      <h6>Posted on: <%= topic.date %></h5>
       <p>>  <%= topic.body %></p>
       <% if (topic.comments) { %>
           <% for (var i = 0; i < topic.comments.length; i++) { %>
               <!-- <h6><%= topic.comments[i] %></h6> -->
-              <h6><%= topic.comments[i].content %></h6>
-              <h6><%= topic.comments[i].user %></h6>
+            <div class="comment-div">
+              <h6 class="comment-content"><%= topic.comments[i].content %></h6>
+              <h6 class="comment-user"><%= topic.comments[i].user %></h6>
+            </div>
           <% } %>
       <% } else if (topic.comments.length == 0) { %>
           <h6>Join the dicussion and submit a comment below.</h6>
@@ -40,7 +42,7 @@
       </form>
     </div>
     <% } %>
-      <h3>Submit comment</h3>
+      <h4>Submit comment</h3>
       <form action="/topics/<%= topic._id %>/comments?_method=PATCH" method="POST">
         <input type="text" placeholder="comment here" name="topic[comments]">
         <input type="submit" value="post comment">

@@ -13,9 +13,11 @@
 #ga-color {
   color: #DA70D6;
 }
-
+/*index styling*/
 #topic-index {
   margin-left: 1em;
+  margin-right: 1em;
+  width: auto;
   /*background-color:blue;*/
   background-color: #FAEBD7;
 }
@@ -66,4 +68,23 @@ body {
 
 .login-div {
   margin-left: 5em;
+}
+/*classes for show index*/
+/*.show-topic {
+  margin-right: 2em;
+  width: 60%;
+  background-color: black;
+  font-size: 50px;
+}*/
+.show-div {
+  margin-left: 5em;
+  background-color: #FAEBD7;
+}
+
+.comment-user {
+  margin-left: 6em;
+}
+
+.comment-div {
+  background-color: #F5FFFA;
 }
