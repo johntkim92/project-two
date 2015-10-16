@@ -13,3 +13,5 @@ Unsolved Problems/ What I'd like to work on in the future:
 Right now, even though the website is fully functional, I would really like to make it look good. There are also added features that I would like to include like a logout button, sorting by comments, and the ability to only give upvotes or downvotes only once per user. The amount of time that I spend styling versus the intended outcome seems inversely proportional. I regret using bootstrap even though it allowed me to have a nice navbar, it created a lot of problems in the end because I had to try and override its css and locate the problem instead of just being able to implement my own and have it work right away. Also I wasn't able to implement JQuery because I didn't think I needed it for my website to be functional.
 
 Links to wireframes, user stories, and notes:
+https://github.com/johntkim92/project-two
+The images are in my repo. There are four of them.
