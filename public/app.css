@@ -16,7 +16,15 @@
 /*index styling*/
 #topic-index {
   margin-left: 1em;
-  margin-right: 1em;
+  margin-right: 15em;
+  width: auto;
+  /*background-color:blue;*/
+  background-color: #FAEBD7;
+}
+
+#pop-index {
+  margin-left: 1em;
+  margin-right: 15em;
   width: auto;
   /*background-color:blue;*/
   background-color: #FAEBD7;
@@ -25,6 +33,11 @@
 #indiv-topics {
   margin-left: 1em;
 }
+
+#pop-topics {
+  margin-left: 1em;
+}
+
 
 body {
   background-color: pink;
@@ -79,12 +92,26 @@ body {
 .show-div {
   margin-left: 5em;
   background-color: #FAEBD7;
+  margin-right: 5em;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  padding-bottom: 1em;
 }
 
 .comment-user {
-  margin-left: 6em;
+  margin-left: 7em;
+  margin-right: 7em;
 }
 
 .comment-div {
   background-color: #F5FFFA;
+}
+
+.index-header {
+  padding-left: 0.5em;
+}
+
+.index-comment {
+  margin-left: 5em;
 }

@@ -26,7 +26,7 @@
               <!-- <h6><%= topic.comments[i] %></h6> -->
             <div class="comment-div">
               <h6 class="comment-content"><%= topic.comments[i].content %></h6>
-              <h6 class="comment-user"><%= topic.comments[i].user %></h6>
+              <h6 class="comment-user">--<%= topic.comments[i].user %></h6>
             </div>
           <% } %>
       <% } else if (topic.comments.length == 0) { %>
