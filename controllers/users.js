@@ -29,7 +29,7 @@ router.post('/login', function (req, res) {
         req.session.currentUser = user.username;
         res.redirect(301, "/topics");
       } else {
-        res.redirect(301, '/new');
+        res.redirect(301, '/users/new');
   }}});
 });
 
