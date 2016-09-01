@@ -29,7 +29,7 @@ router.post('/login', function (req, res) {
         req.session.currentUser = user.username;
         res.redirect(301, "/topics");
       } else {
-        res.redirect(301, '/users/new');
+        res.redirect(301, '/new');
   }}});
 });
 
@@ -39,13 +39,13 @@ router.get('/:id', function (req, res) {
   });
 });
 
-router.get('/logout', function(req, res) {
-  // console.log(req.session.currentUser);
-  delete req.session.currentUser;
-  // req.session.destroy();
-
-  res.redirect(301, '/users/login');
-});
+// router.get('/logout', function(req, res) {
+//   console.log(req.session.currentUser);
+//   delete req.session.currentUser;
+//   req.session.destroy();
+//
+//   res.redirect(301, '/users/login');
+// });
 
 
 module.exports = router;
