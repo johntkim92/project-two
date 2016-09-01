@@ -3,46 +3,68 @@ var express = require('express'),
     Topic = require('../models/topic.js'),
     User = require('../models/user.js');
 
-router.get('/', function (req, res) {
+// User authentication
+
+function checkAuth(req, res, next) {
+  if (!req.session.currentUser) {
+    res.redirect('/users/login');
+  } else {
+    next();
+  }
+}
+
+router.get('/', checkAuth, function (req, res) {
   // console.log(req.body.user.username);
   Topic.find({}, function (err, allTheTopics) {
     if (err) {
       console.log("Something broke", err);
     } else {
       res.render('topics/index', {
-        topics : allTheTopics
+        topics : allTheTopics,
+        currentUser: req.session.currentUser
       });
     }
   });
 });
 
-router.get('/most-votes', function (req, res, next) {
+router.get('/most-votes', checkAuth, function (req, res, next) {
   Topic.find().sort({votes:-1}).exec(function (err, theTopics) {
     if (err) {
       console.log(err);
     } else {
       res.render('topics/most-votes', {
-        topic: theTopics
+        topic: theTopics,
+        currentUser: req.session.currentUser
       });
     }
   });
 });
 
 router.get('/new', function (req, res) {
-  res.render('topics/new');
+  if (req.session.currentUser) {
+    res.render('topics/new' , {
+      currentUser: req.session.currentUser
+    });
+  } else {
+    res.redirect(301, '../users/login');
+  }
 });
 
-router.get('/:id', function (req, res) {
-  Topic.findById(req.params.id, function (err, aSpecficTopic) {
-    if (err) {
-      console.log("Something broke", err);
-    } else {
-      res.render('topics/show', {
-        topic: aSpecficTopic,
-        currentUser: req.session.currentUser
-      });
-    }
-  });
+router.get('/:id', checkAuth, function (req, res) {
+  if (req.session.currentUser) {
+    Topic.findById(req.params.id, function (err, aSpecficTopic) {
+      if (err) {
+        console.log("Something broke", err);
+      } else {
+        res.render('topics/show', {
+          topic: aSpecficTopic,
+          currentUser: req.session.currentUser
+        });
+      }
+    });
+  } else {
+ res.redirect(301, '../users/login');
+ }
 });
 
 

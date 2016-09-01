@@ -54,36 +54,42 @@ server.use(function (req, res, next) {
 var userController = require('./controllers/users.js');
 server.use('/users', userController);
 
-// ** use this to redirect to signup page. put it where it needs to be run
-server.use(function (req, res, next) {
-  if (req.session.currentUser == undefined) {
-    res.redirect(301, '/users/login');
-  } else {
-    next();
-  }
-});
-
-//test
 var topicController = require('./controllers/topics.js');
 server.use('/topics', topicController);
 
+// ** use this to redirect to signup page. put it where it needs to be run
+// server.use(function (req, res, next) {
+//   if (req.session.currentUser == undefined) {
+//     res.redirect(301, '/users/login');
+//   } else {
+//     next();
+//   }
+// });
 
+//test
+// var topicController = require('./controllers/topics.js');
+// server.use('/topics', topicController);
 
-
-server.get('/welcome', function (req, res) {
-  if (req.session.currentUser) {
-    res.render('welcome', {
-      currentUser: req.session.currentUser
-    });
-  } else {
-    res.redirect(301, '/users/login');
-  }
+server.get('/', function(req,res) {
+  res.render('homepage');
 });
 
-server.use(function (req, res, next) {
-  res.send("Your journey ends here");
-  res.end();
-});
+
+
+// server.use('/welcome', function (req, res) {
+//   if (req.session.currentUser) {
+//     res.render('welcome', {
+//       currentUser: req.session.currentUser
+//     });
+//   } else {
+//     res.redirect(301, '/users/login');
+//   }
+// });
+
+// server.use(function (req, res, next) {
+//   res.send("Your journey ends here");
+//   res.end();
+// });
 
 // server.get('/test', function (req, res) {
 //   res.write("Welcome to my amazing app");

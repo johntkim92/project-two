@@ -18,12 +18,15 @@
   },
   "homepage": "https://github.com/johntkim92/project-two#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
+    "mongodb": "^2.0.45",
     "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "express-ejs-layouts": "^1.1.0",
     "express-session": "^1.11.3",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.10"
+    "mongoose": "^4.1.10",
+    "session": "^0.1.0"
   }
 }
