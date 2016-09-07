@@ -2,6 +2,16 @@
   margin-left: 1em;
   margin-bottom: 1em;
 };*/
+
+/* Color Palette
+
+Dusty: #96858F
+Lavendar: #6D7993
+Overcast: #9099A2
+Paper: #D5D5D5
+
+*/
+
 /* General styling apply all */
 .ga-font {
   font-family: 'Megrim', cursive;
@@ -11,7 +21,8 @@
   background-color: #F5FFFA;
 }
 #ga-color {
-  color: #DA70D6;
+  color: #FFC0EB;
+
 }
 /*index styling*/
 #topic-index {
@@ -41,6 +52,7 @@
 
 body {
   background-color: pink;
+  font-family: 'Quicksand', sans-serif;
 }
 /* classes for new users */
 .input-style {
